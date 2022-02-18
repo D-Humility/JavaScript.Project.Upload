@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Calculator</title>
+    <style>
+        body {background-color: gray;}
+
+        div.Calc {
+            background-color: rgb(31, 29, 29);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: large;
+            color: antiquewhite;
+            border-radius: 10%;
+            border: 8px double yellow;
+            box-sizing: border-box;
+            margin: 50 0 0 50;
+            width: 400px;
+        }
+
+        .head2 {
+            color: antiquewhite;
+            text-align: center;
+            padding: 5px;
+            position: relative;
+            animation-name: h2;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes h2 {
+            0%   {color: antiquewhite;}
+            25%  {color:yellow;}
+            50%  {color:antiquewhite;}
+            75%  {color:blue;}
+            100% {color:antiquewhite;}
+        }
+
+        .form {
+            margin-left: 40px;
+        }
+        input[type=number] {
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: large;
+            width: 120px;
+            border-radius: 4px;
+        }
+        button {
+            margin: 10px 80px;
+            padding: 10px;
+            font-size: large;
+            cursor: pointer;
+            background-color: rgb(41, 40, 40);
+            color: antiquewhite;
+            width: 150px;
+            border-radius: 4px;
+        }
+        button:hover {
+            border-color: yellow;
+            background-color: green;
+        }
+        .answers {
+            margin-left: 50px;
+        }
+        output {
+            background-color: white;
+            color: black;
+            font-size: large;
+            padding: 5px 40px;
+            margin: 10px;
+            border-radius: 4px;
+        }
+        .footer {
+            width: 370px;
+            color: white;
+            background-color: gray;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-radius: 0 0 30px 30px;
+            padding: 2px;
+            margin: 30px 5px 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="Calc">
+        <h2 class="head2">Quadratic Calculator</h2>
+        <p style="margin-left: 10px;">Input your values <b style="color: yellow;">correctly</b> in this Order:</p>
+        <p style="margin-left: 10px;"><b style="color: yellow;">A</b>x<sup>2</sup> + 
+            <b style="color: yellow;">B</b>x + <b style="color: yellow;">C</b> = 0
+        </p>
+        <div class="form">
+            <label for="valueA">Value for <b style="color: yellow;">A</b>:</label>
+            <input type="number" id="valueA" required><br>
+            <label for="valueB">Value for <b style="color: yellow;">B</b>:</label>
+            <input type="number" id="valueB" required><br>
+            <label for="valueC">Value for <b style="color: yellow;">C</b>:</label>
+            <input type="number" id="valueC" required>
+        </div>
+        <button type="button" onclick="Solve()">Solve</button>
+        <div class="answers">
+            <label for="X1">X1 = </label>
+            <output id="X1"></output><br><br>
+            <label for="X2">X2 = </label>
+            <output id="X2"></output>
+        </div>
+        <div class="footer">
+            @ D-Humility (International)...
+        </div>
+
+        <script>
+            function Solve() {
+                var a = document.getElementById('valueA').value;
+                var b = document.getElementById('valueB').value;
+                var c = document.getElementById('valueC').value;
+
+
+                let t = b ** 2
+                let s = 4 * a * c
+                let o = t - s
+                let r = o ** (1/2)
+                let p = 2 * a
+                let m = (-b) + r
+                let n = (-b) - r
+                let x1 = m / p
+                let x2 = n / p
+                document.getElementById('X1').innerHTML = x1;
+                document.getElementById('X2').innerHTML = x2;
+            }
+        </script>
+    </div>
+</body>
+</html>
