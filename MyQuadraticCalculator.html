@@ -85,6 +85,14 @@
             padding: 2px;
             margin: 30px 5px 0 5px;
         }
+        #correct {
+            border: 2px solid yellow;
+            border-radius: 8px;
+            margin: 10px 10px 0 10px;
+            color: antiquewhite;
+            visibility: hidden;
+
+        }
     </style>
 </head>
 <body>
@@ -108,7 +116,11 @@
             <output id="X1"></output><br><br>
             <label for="X2">X2 = </label>
             <output id="X2"></output>
-        </div>
+        </div><br>
+        <p id="correct">
+            The Input Values for <b style="color: yellow;"> A</b>, <b style="color: yellow;"> B </b>
+             and/or <b style="color: yellow;"> C </b> is <b style="color: red;">INCORRECT</b>
+        </p>
         <div class="footer">
             @ D-Humility (International)...
         </div>
@@ -131,6 +143,13 @@
                 let x2 = n / p
                 document.getElementById('X1').innerHTML = x1;
                 document.getElementById('X2').innerHTML = x2;
+
+                if (isNaN(x1)) {
+                    document.getElementById("correct").style.visibility = "visible"
+                }
+                else {
+                    document.getElementById('correct').style.visibility = "hidden"
+                }
             }
         </script>
     </div>
