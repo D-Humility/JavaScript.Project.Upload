@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arith. Table(Input)</title>
+    <style>
+        body {
+            background-color: lightyellow;
+            margin-left: 50px;
+            position: relative;
+        }
+        input[type=number] {
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: large;
+            width: 100px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .flex-cont {
+            display: flex;
+            background-color: dodgerblue;
+            max-width: 1000px;
+            position: absolute;
+            top: 20px;
+            right: 200px;
+        }
+        .flex-cont > div {
+            margin: 10px 75px 10px 75px;
+            padding: 20px;
+            background-color: lightyellow;
+            font-weight: bolder;
+            min-height: 400px;
+            min-width: 100px;
+            font-size: large;
+        }
+        h1 {
+            color: dodgerblue;
+        }
+        button {
+            padding: 5px;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arithmetic Tables</h1>
+    <p>Creating Arithmetic Table using JavaScript.</p>
+    <p>Input the number to diplay its Arithmetic table and the max value to Calculate</p>
+<div>
+    <label for="ValueT">Input value for Table to be Displayed: </label>
+    <input type="number" id="ValueT" required><br><br>
+
+    <label for="ValueMax">Input Maximum value for Table to be Displayed: </label>
+    <input type="number" id="ValueMax" required><br><br>
+    <button type="button" onclick="display()">Display Table</button>
+</div>
+    
+    <div class="flex-cont">
+        <div id="Dtable"></div>
+
+    </div>
+
+
+    <script>
+        function display(value) {
+            let t = document.getElementById('ValueT').value;
+            let d = document.getElementById('ValueMax').value;
+            let q = d + 1;
+            let m = q / 10;
+            let i = 1;
+            let table1 = "";
+            for (; i < m; i++) {
+                table1 += t + " x " + i + " = " + (t * i) + "<br>"
+
+            }
+            document.getElementById('Dtable').innerHTML = table1
+        }
+
+    </script>
+</body>
+</html>
